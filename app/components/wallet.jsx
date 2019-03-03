@@ -695,11 +695,11 @@ class ZSendZEN extends React.Component {
                 }
 
                 //Start building transaction
-                let network = bitcoinjs.networks['zer']
+                let network = bitcoinjs.networks['zerc']
                 var keyPair = bitcoinjs.ECPair.fromWIF(senderPrivateKey,network)
                 var txb = new bitcoinjs.TransactionBuilder(network)
 
-                if (infoData.info.blocks  >= 492850) {
+                if (infoData.info.blocks  >= 501000) {
                   txb.setVersion(bitcoinjs.Transaction.ZCASH_SAPLING_VERSION)
                   txb.setVersionGroupId(0x892F2085)
                   txb.setExpiryHeight(infoData.info.blocks+300)
