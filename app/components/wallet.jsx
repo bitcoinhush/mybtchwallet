@@ -287,7 +287,7 @@ class ZWalletSettings extends React.Component {
   render () {
     return (
       <Modal isOpen={this.props.settings.showSettings} toggle={this.props.toggleModalSettings}>
-        <ModalHeader toggle={this.props.toggleShowSettings}>Zero Wallet Settings</ModalHeader>
+        <ModalHeader toggle={this.props.toggleShowSettings}>Zero Classic Wallet Settings</ModalHeader>
         <ModalBody>
           <ZWalletSelectUnlockType
               setUnlockType={this.props.setUnlockType}
@@ -811,7 +811,7 @@ class ZSendZEN extends React.Component {
         <Col>
           <Card>
             <CardBlock>
-              <Alert color="danger">ALWAYS VALIDATE YOUR DESINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERO FIRST</Alert>
+              <Alert color="danger">ALWAYS VALIDATE YOUR DESINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERC FIRST</Alert>
               <InputGroup>
                 <InputGroupAddon>From Address</InputGroupAddon>
                 <Input type="select" onChange={this.handleUpdateSelectedAddress}>
@@ -1003,7 +1003,7 @@ class ZWalletTabs extends React.Component {
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggleTabs('2'); }}
             >
-              Send ZERO
+              Send ZERC
             </NavLink>
           </NavItem>
           <NavItem>
@@ -1075,8 +1075,8 @@ export default class ZWallet extends React.Component {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://insight.zerocurrency.io/insight-api-zero/',
-        explorerURL: 'https://insight.zerocurrency.io/insight/',
+        insightAPI: 'https://insight.zeroclassic.org/api/',
+        explorerURL: 'https://insight.zeroclassic.org/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -1209,12 +1209,12 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://insight.zerocurrency.io/insight-api-zero/'
-      _settings.explorerURL = 'https://insight.zerocurrency.io/insight/'
+      _settings.insightAPI = 'https://insight.zeroclassic.org/api/'
+      _settings.explorerURL = 'https://insight.zeroclassic.org/'
     }
     else{
-      _settings.insightAPI = 'https://insight.zerocurrency.io/insight-api-zero/'
-      _settings.explorerURL = 'https://insight.zerocurrency.io/insight/'
+      _settings.insightAPI = 'https://insight.zeroclassic.org/api/'
+      _settings.explorerURL = 'https://insight.zeroclassic.org/'
     }
 
     this.setState({
@@ -1245,7 +1245,7 @@ export default class ZWallet extends React.Component {
       <Container>
         <Row>
           <Col>
-            <h1 className='display-6'>Zero Wallet&nbsp;
+            <h1 className='display-6'>Zero Classic Wallet&nbsp;
               <ToolTipButton onClick={this.toggleShowSettings} id={1} buttonText={<MDSettings/>} tooltipText={'settings'}/>&nbsp;
               <ToolTipButton disabled={this.state.publicAddresses === null} onClick={this.resetKeys} id={2} buttonText={<FARepeat/>} tooltipText={'reset wallet'}/>
             </h1>

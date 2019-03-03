@@ -27342,7 +27342,7 @@ var ZNavbar = function (_React$Component) {
           _reactstrap.NavbarBrand,
           { href: '/' },
           _react2.default.createElement('img', { src: '/favicon.ico', height: 42 }),
-          '\xA0wallet.zeromachine.io'
+          '\xA0wallet.zeroclassic.org'
         ),
         _react2.default.createElement(
           _reactstrap.Collapse,
@@ -30494,7 +30494,7 @@ var ZFooter = function (_React$Component) {
                 _react2.default.createElement(
                   'b',
                   null,
-                  'WALLET.ZEROMACHINE.IO AND BOOKMARK IT'
+                  'WALLET.ZEROCLASSIC.ORG AND BOOKMARK IT'
                 )
               ),
               _react2.default.createElement(
@@ -31719,8 +31719,8 @@ var ZGuide = function (_React$Component) {
                 'Go to ',
                 _react2.default.createElement(
                   'a',
-                  { href: 'https://wallet.zeromachine.io/' },
-                  'https://wallet.zeromachine.io/'
+                  { href: 'https://wallet.zeroclassic.org/' },
+                  'https://wallet.zeroclassic.org/'
                 )
               ),
               _react2.default.createElement(
@@ -31772,8 +31772,8 @@ var ZGuide = function (_React$Component) {
                 'If you\'ve created a wallet on ',
                 _react2.default.createElement(
                   'a',
-                  { href: 'https://wallet.zeromachine.io/' },
-                  'https://wallet.zeromachine.io/'
+                  { href: 'https://wallet.zeroclassic.org/' },
+                  'https://wallet.zeroclassic.org/'
                 ),
                 ' via the secret phrase, simply re-enter the same phrase.'
               ),

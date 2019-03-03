@@ -27279,7 +27279,7 @@ var ZNavbar = function (_React$Component) {
           _reactstrap.NavbarBrand,
           { href: '/' },
           _react2.default.createElement('img', { src: '/favicon.ico', height: 42 }),
-          '\xA0wallet.zeromachine.io'
+          '\xA0wallet.zeroclassic.org'
         ),
         _react2.default.createElement(
           _reactstrap.Collapse,
@@ -30411,7 +30411,7 @@ var ZFooter = function (_React$Component) {
                 _react2.default.createElement(
                   'b',
                   null,
-                  'WALLET.ZEROMACHINE.IO AND BOOKMARK IT'
+                  'WALLET.ZEROCLASSIC.ORG AND BOOKMARK IT'
                 )
               ),
               _react2.default.createElement(
@@ -30942,7 +30942,7 @@ var ZFaq = function (_React$Component) {
                 { href: 'https://myetherwallet.com' },
                 'MyEtherWallet\'s'
               ),
-              ' mission statement: to provide the people the ability to interact with the ZER blockchain easily, without having to run a full node.'
+              ' mission statement: to provide the people the ability to interact with the ZERC blockchain easily, without having to run a full node.'
             )
           )
         )

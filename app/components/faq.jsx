@@ -19,12 +19,12 @@ export default class ZFaq extends React.Component {
 
             <p>
               <b>Q: Can I have the source code?</b><br/>
-              A: <a href="https://github.com/zerocurrencycoin">Here you go</a>
+              A: <a href="https://github.com/zeroclassic">Here you go</a>
             </p>
 
             <p>
               <b>Q: Why are you doing this?</b><br/>
-              A: This wallet was inspired by MyZenWallet & MyBitcoinZ, which was inspired by <a href="https://myetherwallet.com">MyEtherWallet's</a> mission statement: to provide the people the ability to interact with the ZER blockchain easily, without having to run a full node.
+              A: This wallet was inspired by MyZenWallet & MyBitcoinZ, which was inspired by <a href="https://myetherwallet.com">MyEtherWallet's</a> mission statement: to provide the people the ability to interact with the ZERC blockchain easily, without having to run a full node.
             </p>
 
           </Col>

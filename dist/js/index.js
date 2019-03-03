@@ -35392,7 +35392,7 @@ var ZNavbar = function (_React$Component) {
           _reactstrap.NavbarBrand,
           { href: '/' },
           _react2.default.createElement('img', { src: '/favicon.ico', height: 42 }),
-          '\xA0wallet.zeromachine.io'
+          '\xA0wallet.zeroclassic.org'
         ),
         _react2.default.createElement(
           _reactstrap.Collapse,
@@ -39054,7 +39054,7 @@ var ZFooter = function (_React$Component) {
                 _react2.default.createElement(
                   'b',
                   null,
-                  'WALLET.ZEROMACHINE.IO AND BOOKMARK IT'
+                  'WALLET.ZEROCLASSIC.ORG AND BOOKMARK IT'
                 )
               ),
               _react2.default.createElement(
@@ -39068,31 +39068,19 @@ var ZFooter = function (_React$Component) {
               { md: '4' },
               _react2.default.createElement(
                 'a',
-                { href: 'https://zerocurrency.io/', target: '_blank' },
+                { href: 'https://zeroclassic.org/', target: '_blank' },
                 'website'
               ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://bitcointalk.org/index.php?topic=3310714', target: '_blank' },
-                'ANN'
-              ),
-              _react2.default.createElement('br', null),
-              _react2.default.createElement(
-                'a',
-                { href: 'https://github.com/zerocurrencycoin', target: '_blank' },
+                { href: 'https://github.com/zeroclassic', target: '_blank' },
                 'github'
               ),
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'a',
-                { href: 'https://t.me/zerocurrency', target: '_blank' },
-                'telegram'
-              ),
-              _react2.default.createElement('br', null),
-              _react2.default.createElement(
-                'a',
-                { href: 'https://discord.gg/Jq5knn5', target: '_blank' },
+                { href: 'https://discord.gg/wSDrMJD', target: '_blank' },
                 'discord'
               ),
               _react2.default.createElement('br', null)
@@ -54975,7 +54963,7 @@ var ZWalletSettings = function (_React$Component4) {
         _react2.default.createElement(
           _reactstrap.ModalHeader,
           { toggle: this.props.toggleShowSettings },
-          'Zero Wallet Settings'
+          'Zero Classic Wallet Settings'
         ),
         _react2.default.createElement(
           _reactstrap.ModalBody,
@@ -55638,7 +55626,7 @@ var ZSendZEN = function (_React$Component6) {
               _react2.default.createElement(
                 _reactstrap.Alert,
                 { color: 'danger' },
-                'ALWAYS VALIDATE YOUR DESINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERO FIRST'
+                'ALWAYS VALIDATE YOUR DESINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERC FIRST'
               ),
               _react2.default.createElement(
                 _reactstrap.InputGroup,
@@ -55954,7 +55942,7 @@ var ZWalletTabs = function (_React$Component9) {
                   _this16.toggleTabs('2');
                 }
               },
-              'Send ZERO'
+              'Send ZERC'
             )
           ),
           _react2.default.createElement(
@@ -56064,8 +56052,8 @@ var ZWallet = function (_React$Component10) {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://insight.zerocurrency.io/insight-api-zero/',
-        explorerURL: 'https://insight.zerocurrency.io/insight/',
+        insightAPI: 'https://insight.zeroclassic.org/api/',
+        explorerURL: 'https://insight.zeroclassic.org/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -56210,11 +56198,11 @@ var ZWallet = function (_React$Component10) {
       _settings.useTestNet = !_settings.useTestNet;
 
       if (_settings.useTestNet) {
-        _settings.insightAPI = 'https://insight.zerocurrency.io/insight-api-zero/';
-        _settings.explorerURL = 'https://insight.zerocurrency.io/insight/';
+        _settings.insightAPI = 'https://insight.zeroclassic.org/api/';
+        _settings.explorerURL = 'https://insight.zeroclassic.org/';
       } else {
-        _settings.insightAPI = 'https://insight.zerocurrency.io/insight-api-zero/';
-        _settings.explorerURL = 'https://insight.zerocurrency.io/insight/';
+        _settings.insightAPI = 'https://insight.zeroclassic.org/api/';
+        _settings.explorerURL = 'https://insight.zeroclassic.org/';
       }
 
       this.setState({
@@ -56256,7 +56244,7 @@ var ZWallet = function (_React$Component10) {
             _react2.default.createElement(
               'h1',
               { className: 'display-6' },
-              'Zero Wallet\xA0',
+              'Zero Classic Wallet\xA0',
               _react2.default.createElement(ToolTipButton, { onClick: this.toggleShowSettings, id: 1, buttonText: _react2.default.createElement(_settings3.default, null), tooltipText: 'settings' }),
               '\xA0',
               _react2.default.createElement(ToolTipButton, { disabled: this.state.publicAddresses === null, onClick: this.resetKeys, id: 2, buttonText: _react2.default.createElement(_repeat2.default, null), tooltipText: 'reset wallet' })
@@ -90887,7 +90875,7 @@ module.exports = {
 		"babel-preset-env": "^1.7.0",
 		"bip32-utils": "^0.10.2",
 		"bitcoinjs-lib": "^3.3.2",
-		"bitgo-utxo-lib": "git+https://github.com/zerocurrencycoin/bitgo-utxo-lib.git",
+		"bitgo-utxo-lib": "git+https://github.com/zeroclassic/bitgo-utxo-lib.git",
 		"bluebird": "^3.5.3",
 		"bootstrap": "^4.1.3",
 		"bs58": "^4.0.1",
