@@ -8,7 +8,7 @@ function phraseToHDWallet(phraseStr) {
   const seedHex = Buffer.from(phraseStr.slice(0, 64)).toString('hex')
 
   //Set Network
-  let network = bitcoinjs.networks['zer']
+  let network = bitcoinjs.networks['zerc']
   //console.log('Network ' + network)
 
   // chains
