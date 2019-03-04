@@ -55565,7 +55565,7 @@ var ZSendZEN = function (_React$Component6) {
           _react2.default.createElement(
             'strong',
             null,
-            'ZERO successfully sent!'
+            'ZERC successfully sent!'
           ),
           ' ',
           _react2.default.createElement(
@@ -55682,7 +55682,7 @@ var ZSendZEN = function (_React$Component6) {
                   { check: true },
                   _react2.default.createElement(_reactstrap.Input, { onChange: this.handleCheckChanged, type: 'checkbox' }),
                   ' ',
-                  'Yes, I would like to send these ZERO'
+                  'Yes, I would like to send these ZERC'
                 )
               ),
               _react2.default.createElement('br', null),
@@ -62281,7 +62281,7 @@ Block.calculateTarget = function (bits) {
 
 Block.calculateMerkleRoot = function (transactions) {
   typeforce([{ getHash: types.Function }], transactions)
-  if (transactions.length === 0) throw TypeError('Cannot compute merkle root for zero transactions')
+  if (transactions.length === 0) throw TypeError('Cannot compute merkle root for zerc transactions')
 
   var hashes = transactions.map(function (transaction) {
     return transaction.getHash()
