@@ -224,8 +224,8 @@ class ZWalletUnlockKey extends React.Component {
                 />
               </Label>
               <FormText color="muted">
-                For Windows, it should be in %APPDATA%/zero<br/>
-                For Mac/Linux, it should be in ~/.zero
+                For Windows, it should be in %APPDATA%/zeroclassic<br/>
+                For Mac/Linux, it should be in ~/.zeroclassic
               </FormText>
             </Col>
           </FormGroup>
@@ -678,7 +678,7 @@ class ZSendZEN extends React.Component {
                 // If we don't have enough address
                 // fail and tell user
                 if (satoshisSoFar < satoshisToSend + satoshisfeesToSend) {
-                  this.setSendErrorMessage('Not enough confirmed ZERO in account to perform transaction')
+                  this.setSendErrorMessage('Not enough confirmed ZERC in account to perform transaction')
                   this.setProgressValue(0)
                   return
                 }
@@ -775,7 +775,7 @@ class ZSendZEN extends React.Component {
       var zentx = zenwalletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
       zenTxLink = (
         <Alert color="success">
-        <strong>ZERO successfully sent!</strong> <a href={zentx} target="_blank">Click here to view your transaction</a>
+        <strong>ZERC successfully sent!</strong> <a href={zentx} target="_blank">Click here to view your transaction</a>
         </Alert>
       )
     }
@@ -835,7 +835,7 @@ class ZSendZEN extends React.Component {
               <FormGroup check>
                 <Label check>
                   <Input onChange={this.handleCheckChanged} type="checkbox" />{' '}
-                  Yes, I would like to send these ZERO
+                  Yes, I would like to send these ZERC
                 </Label>
               </FormGroup>
               <br/>
