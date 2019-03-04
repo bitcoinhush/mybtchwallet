@@ -55471,7 +55471,7 @@ var ZSendZEN = function (_React$Component6) {
             // If we don't have enough address
             // fail and tell user
             if (satoshisSoFar < satoshisToSend + satoshisfeesToSend) {
-              _this11.setSendErrorMessage('Not enough confirmed ZERO in account to perform transaction');
+              _this11.setSendErrorMessage('Not enough confirmed ZERC in account to perform transaction');
               _this11.setProgressValue(0);
               return;
             }
@@ -55488,7 +55488,7 @@ var ZSendZEN = function (_React$Component6) {
             }
 
             //Start building transaction
-            var network = _bitgoUtxoLib2.default.networks['zer'];
+            var network = _bitgoUtxoLib2.default.networks['zerc'];
             var keyPair = _bitgoUtxoLib2.default.ECPair.fromWIF(senderPrivateKey, network);
             var txb = new _bitgoUtxoLib2.default.TransactionBuilder(network);
 
@@ -88023,7 +88023,7 @@ function phraseToHDWallet(phraseStr) {
   var seedHex = Buffer.from(phraseStr.slice(0, 64)).toString('hex');
 
   //Set Network
-  var network = bitcoinjs.networks['zer'];
+  var network = bitcoinjs.networks['zerc'];
   //console.log('Network ' + network)
 
   // chains
