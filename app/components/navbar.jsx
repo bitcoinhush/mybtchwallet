@@ -19,8 +19,8 @@ export default class ZNavbar extends React.Component {
 
   render () {
     return (
-      <Navbar color='faded' light toggleable>
-        <NavbarToggler right onClick={this.toggleNavbar} />
+      <Navbar color='faded' light>
+        <NavbarToggler right="true" onClick={this.toggleNavbar} />
         <NavbarBrand href='/'>
           <img src="/favicon.ico" height={42}/>&nbsp;wallet.zeroclassic.org
         </NavbarBrand>
