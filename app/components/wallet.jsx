@@ -1,4 +1,4 @@
-import { Alert, Form, FormText, ButtonGroup, UncontrolledAlert, Tooltip, CardBlock, CardFooter, Modal, ModalHeader, ModalBody, ModalFooter, ListGroup, ListGroupItem, Badge, Progress, FormGroup, Label, Container, Jumbotron, TabContent, InputGroup, Input, InputGroupAddon, InputGroupButton, Table, TabPane, Nav, NavItem, NavLink, Card, CardSubtitle, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Alert, Form, FormText, ButtonGroup, UncontrolledAlert, Tooltip, CardBody, CardFooter, Modal, ModalHeader, ModalBody, ModalFooter, ListGroup, ListGroupItem, Badge, Progress, FormGroup, Label, Container, Jumbotron, TabContent, InputGroup, Input, InputGroupAddon, Table, TabPane, Nav, NavItem, NavLink, Card, CardSubtitle, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 import axios from 'axios'
 import React from 'react'
@@ -101,11 +101,11 @@ class ZWalletGenerator extends React.Component {
         <br/>
         <InputGroup>
           <Input value={this.state.privateKey} placeholder="Private key generated from password phrase" />
-          <InputGroupButton>
+          <InputGroupAddon addonType="append">
             <CopyToClipboard text={this.state.privateKey}>
               <Button><MDCopy/></Button>
             </CopyToClipboard>
-          </InputGroupButton>
+          </InputGroupAddon>
         </InputGroup>
       </div>
     )
@@ -238,11 +238,11 @@ class ZWalletUnlockKey extends React.Component {
         <div>
           {this.state.invalidPrivateKey ? <Alert color="danger"><strong>Error.</strong>&nbsp;Invalid private key</Alert> : ''}
           <InputGroup>
-            <InputGroupButton>
+            <InputGroupAddon addonType="prepend">
               <Button id={4}
                 onClick={this.toggleShowPassword}
               >{this.state.showPassword? <FAEye/> : <FAEyeSlash/>}</Button>
-            </InputGroupButton>
+            </InputGroupAddon>
             <Input
               type={this.state.showPassword ? "text" : "password"}
               onChange={(e) => this.props.setPrivateKeys([e.target.value])} // Set it in a list so we can map over it later
@@ -262,11 +262,11 @@ class ZWalletUnlockKey extends React.Component {
           <Alert color="warning"><strong>Warning.</strong>&nbsp;Make sure you have saved your secret phrase somewhere.</Alert>
           {this.state.secretPhraseTooShort ? <Alert color="danger"><strong>Error.</strong>&nbsp;Secret phrase too short</Alert> : '' }
           <InputGroup>
-            <InputGroupButton>
+            <InputGroupAddon addonType="prepend">
               <Button id={7}
                 onClick={this.toggleShowPassword}
               >{this.state.showPassword? <FAEye/> : <FAEyeSlash/>}</Button>
-            </InputGroupButton>
+            </InputGroupAddon>
             <Input
               type={this.state.showPassword ? "text" : "password"}
               maxLength="64"
@@ -457,16 +457,16 @@ class ZAddressInfo extends React.Component {
       <Row>
         <Col>
           <Card>
-            <CardBlock>
+            <CardBody>
               {this.state.retrieveAddressError ?
               <Alert color="danger">Error connecting to the Insight API. Double check the Insight API supplied in settings.</Alert>
               :
               <Alert color="warning">The balance displayed here is dependent on the insight node.<br/>Automatically updates every 5 minutes. Alternatively, you can <a href="#" onClick={() => this.updateAddressesInfo()}>forcefully refresh</a> them.</Alert>
               }
-            </CardBlock>
+            </CardBody>
           </Card>
           <Card>
-            <CardBlock>
+            <CardBody>
               <ReactTable
                 columns={[{
                   Header: 'Total Confirmed',
@@ -489,16 +489,16 @@ class ZAddressInfo extends React.Component {
 
                 minRows={1}
               />
-            </CardBlock>
+            </CardBody>
           </Card>
           <Card>
-            <CardBlock>
+            <CardBody>
               <ReactTable
                 data={addresses} columns={addressColumns}
                 minRows={addresses.length > 20 ? 20 : addresses.length}
                 showPagination={addresses.length > 20}
               />
-            </CardBlock>
+            </CardBody>
           </Card>
         </Col>
       </Row>
@@ -801,7 +801,7 @@ class ZSendZEN extends React.Component {
     Object.keys(this.props.publicAddresses).forEach(function(key) {
       if (key !== undefined){
         sendAddresses.push(
-          <option value={key}>[{this.props.publicAddresses[key].confirmedBalance}] - {key}</option>
+          <option key={key} value={key}>[{this.props.publicAddresses[key].confirmedBalance}] - {key}</option>
         )
       }
     }.bind(this))
@@ -810,25 +810,34 @@ class ZSendZEN extends React.Component {
       <Row>
         <Col>
           <Card>
-            <CardBlock>
-              <Alert color="danger">ALWAYS VALIDATE YOUR DESINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERC FIRST</Alert>
+            <CardBody>
+              <Alert color="danger">ALWAYS VALIDATE YOUR DESTINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERC FIRST</Alert>
               <InputGroup>
-                <InputGroupAddon>From Address</InputGroupAddon>
+                <InputGroupAddon addonType="prepend">From Address</InputGroupAddon>
                 <Input type="select" onChange={this.handleUpdateSelectedAddress}>
                   <option value=''></option>
                   {sendAddresses}
                 </Input>
               </InputGroup>
-              <InputGroup>
-                <InputGroupAddon>To Address</InputGroupAddon>
+				  
+				  <br/>
+              
+				  <InputGroup>
+                <InputGroupAddon addonType="prepend">To Address</InputGroupAddon>
                 <Input onChange={this.handleUpdateRecipientAddress} placeholder="e.g t1drYhoWo3BgGgqiLVpDyTbTgUsznooHvSi" />
               </InputGroup>
-              <InputGroup>
-                <InputGroupAddon>Amount</InputGroupAddon>
+					
+					<br/>
+					
+					<InputGroup>
+                <InputGroupAddon addonType="prepend">Amount</InputGroupAddon>
                 <Input onChange={this.handleUpdateAmount} placeholder="e.g 42" />
-              </InputGroup>
-              <InputGroup>
-                <InputGroupAddon>Fee</InputGroupAddon>
+					</InputGroup>
+					
+					<br/>
+              
+				  <InputGroup>
+						<InputGroupAddon addonType="prepend">Fee</InputGroupAddon>
                 <Input onChange={this.handleUpdateFee} placeholder="e.g 0.0001" />
               </InputGroup>
               <br/>
@@ -844,7 +853,7 @@ class ZSendZEN extends React.Component {
                 disabled={!this.state.confirmSend || (this.state.sendProgress > 0 && this.state.sendProgress < 100)}
                 onClick={this.handleSendZEN}
               >Send</Button>
-            </CardBlock>
+            </CardBody>
             <CardFooter>
               {zenTxLink}
               <Progress value={this.state.sendProgress} />
@@ -913,7 +922,7 @@ class ZPrintableKeys extends React.Component {
     Object.keys(this.props.publicAddresses).forEach(function(key) {
       if (key !== undefined){
         sendAddresses.push(
-          <option value={key}>[{this.props.publicAddresses[key].confirmedBalance}] - {key}</option>
+          <option key={key} value={key}>[{this.props.publicAddresses[key].confirmedBalance}] - {key}</option>
         )
       }
     }.bind(this))
@@ -1033,16 +1042,16 @@ class ZWalletTabs extends React.Component {
             <Row>
               <Col>
                 <Card>
-                  <CardBlock>
+                  <CardBody>
                     <ZPrintableKeys publicAddresses={this.props.publicAddresses}/>
-                  </CardBlock>
-                  <CardBlock>
+                  </CardBody>
+                  <CardBody>
                     <h3>Private Key Dump</h3>
                     <Button
                       color="secondary" className="btn-block"
                       onClick={this.savePrivateKeys}
                     >Download Private Keys</Button>
-                  </CardBlock>
+                  </CardBody>
                 </Card>
               </Col>
             </Row>
