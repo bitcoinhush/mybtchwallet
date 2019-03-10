@@ -93,7 +93,7 @@ class ZWalletGenerator extends React.Component {
   render () {
     return (
       <div>
-        <h3 className='display-6'>Generate New Address</h3>
+        <h1 className='display-6'>Generate New Address</h1>
         <br/>
         <InputGroup>
           <Input onChange={this.handlePasswordPhrase} placeholder="Password phrase. Do NOT forget to save this! Use >15 words to be safe." />
@@ -495,8 +495,10 @@ class ZAddressInfo extends React.Component {
             <CardBody>
               <ReactTable
                 data={addresses} columns={addressColumns}
-                minRows={addresses.length > 20 ? 20 : addresses.length}
-                showPagination={addresses.length > 20}
+                minRows={addresses.length > 5 ? 5 : addresses.length}
+                showPagination={addresses.length > 5}
+                defaultPageSize={5}
+                showPageSizeOptions={false}
               />
             </CardBody>
           </Card>
@@ -832,15 +834,11 @@ class ZSendZEN extends React.Component {
 					<InputGroup>
                 <InputGroupAddon addonType="prepend">Amount</InputGroupAddon>
                 <Input onChange={this.handleUpdateAmount} placeholder="e.g 42" />
+                <InputGroupAddon addonType="prepend">Fee</InputGroupAddon>
+                <Input onChange={this.handleUpdateFee} value="0.0001" placeholder="e.g 0.0001" />
 					</InputGroup>
 					
 					<br/>
-              
-				  <InputGroup>
-						<InputGroupAddon addonType="prepend">Fee</InputGroupAddon>
-                <Input onChange={this.handleUpdateFee} placeholder="e.g 0.0001" />
-              </InputGroup>
-              <br/>
               <FormGroup check>
                 <Label check>
                   <Input onChange={this.handleCheckChanged} type="checkbox" />{' '}
@@ -939,7 +937,7 @@ class ZPrintableKeys extends React.Component {
               this.state.selectedPublicAddress === '' ?
               null :
               (
-                <Row style={{textAlign: 'center', paddingTop: '75px', paddingBottom: '25px'}}>
+                <Row style={{textAlign: 'center', paddingTop: '50px', paddingBottom: '25px'}}>
                   <Col>
                     <QRCode value={this.state.selectedPublicAddress} /><br/>
                     { this.state.selectedPublicAddress }

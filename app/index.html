@@ -5,38 +5,187 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico">
-    <title>https://wallet.zeroclassic.org/</title>
+    <title>Zero Classic Web Wallet</title>
+    <!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/images/logos/zerc-logo-trans-purp.png" />
+    <!-- Bootstrap & Plugins CSS -->
+	<link href="https://zeroclassic.org/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" />
+
+	<!-- Custom CSS -->
+    <link href="https://zeroclassic.org/assets/css/dark.css" rel="stylesheet" type="text/css">
     <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
+        .nav-tabs .nav-item {
+            margin-bottom: -1px;
+            background-color: #e9e9e9;
         }
-
-        .aligner {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        footer .footer-bottom {
+            padding-top: 40px;
+            background-image: linear-gradient(134deg, #29323c 0%, #485563 100%);
+            position: relative;
         }
-
-        .container {
-            text-align: center;
-            min-width: 75vh;
+        .welcome-area canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            z-index: 4;
+        }
+        .welcome-area .header-token.text {
+            top: 70%;
         }
     </style>
 </head>
 <body>
-    <div id="navbar"></div>
-    <div class="container">Always check the URL and look for Certificate up there. Look for https://wallet.zeroclassic.org/. Be safe &amp; secure</a>.</div>
+    <div class="loading-wrapper">
+        <div class="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
-    <div class="aligner">
-        <div id="wallet"></div>
-        <div id="guide"></div>
-        <div id="faq"></div>
-    </div><br/>
+    <!-- ***** Header Area Start ***** -->
+	<header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="navbar"></div>
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="https://zeroclassic.org/assets/images/logos/zerc-logo-text-white.png" class="light-logo" alt="Zero Classic"/>
+                            <img src="https://zeroclassic.org/assets/images/logos/zerc-logo-text-black.png" class="dark-logo" alt="Zero Classic"/>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="https://zeroclassic.org/#about">ABOUT</a></li>
+                            <li><a href="https://zeroclassic.org/#specs">SPECS</a></li>
+                            <li><a href="https://zeroclassic.org/#roadmap">ROADMAP</a></li>
+                            <li><a href="https://zeroclassic.org/#links">EXPLORERS</a></li>
+                            <li><a href="https://zeroclassic.org/#links">EXCHANGES</a></li>
+                            <li><a href="https://zeroclassic.org/#links">POOLS</a></li>
+                            <li><a href="https://zeroclassic.org/#faq">FAQ</a></li>
+                            <li><a href="https://discord.gg/TBDTycM">DISCORD</a></li>
+                            <li><a href="https://zeroclassic.org/#wallet" class="btn-nav-box">WALLETS</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->						
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="welcome-area bg-bottom-center" id="welcome-1">
+        <div class="header-token text">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-12 align-self-center">
+                        <div id="wallet"></div>
+                    </div>
+                    <div class="offset-lg-3 col-lg-6">
+                        <p>Always check the URL and look for https://wallet.zeroclassic.org/. Be safe &amp; secure</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>	
+    </section>
+
+    <div class="modal fade" id="faqopen" tabindex="-1" role="dialog" aria-labelledby="faqLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="faqLabel">FAQ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                <b>Q: Are my private keys secured?</b><br/>
+                A: Yes they are secured, your private keys never leave your browser.
+                </p>
+
+                <p>
+                <b>Q: How is this secure? Its on a web browser!</b><br/>
+                A: This wallet has replicated the core features of Zero Classic's daemon in JavaScript! So the process of creating and signing the transactions are all done within the browser. No sensitive information is sent through the network.
+                </p>
+
+                <p>
+                <b>Q: Can I have the source code?</b><br/>
+                A: <a href="https://github.com/zeroclassic/MyZeroWallet">Here you go</a>
+                </p>
+
+                <p>
+                <b>Q: Why are you doing this?</b><br/>
+                A: This wallet was inspired by MyZenWallet & MyBitcoinZ, which was inspired by <a href="https://myetherwallet.com">MyEtherWallet's</a> mission statement: to provide the people the ability to interact with the ZERC blockchain easily, without having to run a full node.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="guideopen" tabindex="-1" role="dialog" aria-labelledby="guideLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="guideLabel">Guide</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Creating a new wallet</h3>
+                <ul>
+                    <li>Go to <a href="https://wallet.zeroclassic.org/">https://wallet.zeroclassic.org/</a></li>
+                    <li>Enter a strong but easy to remember secret phrase. Save this somewhere and do NOT forget it.</li>
+                    <li>Click the <code>Generate Wallet Button</code></li>
+                    <ul><li>This creates a <a href="https://en.bitcoin.it/wiki/Deterministic_wallet">deterministic wallet</a> based on your secret phrase.</li></ul>
+                </ul>
+    
+                <br/>
+    
+                <h3>2. Accessing an existing wallet</h3>
+                <ul>
+                    <li>If you've created a wallet on <a href="https://wallet.zeroclassic.org/">https://wallet.zeroclassic.org/</a> via the secret phrase, simply re-enter the same phrase.</li>
+                    <li>For those with a <code>wallet.zero</code> file generated by GUI wallets. Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Load wallet.zero</code> option and load your <code>wallet.zero</code> file</li>
+                    <li>To unlock a single address, Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Paste private key</code> option, paste in your private key and click the unlock button</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
     <div id="footer"></div>
 
+    <!-- jQuery -->
+    <script src="https://zeroclassic.org/assets/js/jquery-2.1.0.min.js"></script>
+    <!-- Bootstrap -->
+	<script src="https://zeroclassic.org/assets/js/popper.js"></script>
+	<script src="https://zeroclassic.org/assets/js/bootstrap.min.js"></script>
+
+	<!-- Plugins -->
+	<script src="https://zeroclassic.org/assets/js/particles.min.js"></script>
+	<script src="https://zeroclassic.org/assets/js/scrollreveal.min.js"></script>
+	<script src="https://zeroclassic.org/assets/js/jquery.downCount.js"></script>
+	<script src="https://zeroclassic.org/assets/js/parallax.min.js"></script>
+
+	<!-- Global Init -->
+	<script src="https://zeroclassic.org/assets/js/particle-purple.js"></script>
+	<script src="https://zeroclassic.org/assets/js/custom.js"></script>
 </body>
 
 </html>
