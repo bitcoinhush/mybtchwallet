@@ -9,7 +9,7 @@ Download `dist` folder and double click `index.html`
 
 # Dev
 ```shell
-yarn build # builds
+yarn build # builds <- NOT FOR THE MOMENT
 yarn watch # watch and regenerate files
 yarn start # start local host server
 ```
