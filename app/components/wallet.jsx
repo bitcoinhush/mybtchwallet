@@ -1082,8 +1082,8 @@ export default class ZWallet extends React.Component {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://insight.zeroclassic.org/api/',
-        explorerURL: 'https://insight.zeroclassic.org/',
+        insightAPI: 'https://btch.explorer.dexstats.info/insight-api-komodo',
+        explorerURL: 'https://btch.explorer.dexstats.info/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -1216,12 +1216,12 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://insight.zeroclassic.org/api/'
-      _settings.explorerURL = 'https://insight.zeroclassic.org/'
+      _settings.insightAPI = 'https://btch.explorer.dexstats.info/insight-api-komodo'
+      _settings.explorerURL = 'https://btch.explorer.dexstats.info/'
     }
     else{
-      _settings.insightAPI = 'https://insight.zeroclassic.org/api/'
-      _settings.explorerURL = 'https://insight.zeroclassic.org/'
+      _settings.insightAPI = 'https://btch.explorer.dexstats.info/insight-api-komodo'
+      _settings.explorerURL = 'https://btch.explorer.dexstats.info/'
     }
 
     this.setState({
