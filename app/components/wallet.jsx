@@ -826,7 +826,7 @@ class ZSendZEN extends React.Component {
               
 				  <InputGroup>
                 <InputGroupAddon addonType="prepend">To Address</InputGroupAddon>
-                <Input onChange={this.handleUpdateRecipientAddress} placeholder="e.g t1drYhoWo3BgGgqiLVpDyTbTgUsznooHvSi" />
+                <Input onChange={this.handleUpdateRecipientAddress} placeholder="e.g RSdgDXiDE1E3bnD13Pxsa6xR4oWxDrU6rr" />
               </InputGroup>
 					
 					<br/>
