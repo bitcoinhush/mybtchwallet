@@ -835,7 +835,7 @@ class ZSendZEN extends React.Component {
                 <InputGroupAddon addonType="prepend">Amount</InputGroupAddon>
                 <Input onChange={this.handleUpdateAmount} placeholder="e.g 42" />
                 <InputGroupAddon addonType="prepend">Fee</InputGroupAddon>
-                <Input onChange={this.handleUpdateFee} value="0.0001" placeholder="e.g 0.0001" />
+                <Input onChange={this.handleUpdateFee} placeholder="e.g 0.0001" />
 					</InputGroup>
 					
 					<br/>
