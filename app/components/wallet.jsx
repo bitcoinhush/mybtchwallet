@@ -7,8 +7,8 @@ import classnames from 'classnames'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import ReactTable from 'react-table'
 import bitcoinjs from 'bitgo-utxo-lib'
-import zerojs from 'btczjs'
-import zenwalletutils from '../lib/utils'
+import komodojs from 'komodojs'
+import walletutils from '../lib/utils'
 import hdwallet from '../lib/hdwallet'
 import FileSaver from 'file-saver'
 
@@ -23,7 +23,7 @@ import FAEye from 'react-icons/lib/fa/eye'
 import pjson from '../../package.json'
 
 // Throttled GET request to prevent unusable lag
-const throttledAxiosGet = zenwalletutils.promiseDebounce(axios.get, 1000, 5)
+const throttledAxiosGet = walletutils.promiseDebounce(axios.get, 1000, 5)
 
 // Unlock wallet enum
 var UNLOCK_WALLET_TYPE = {
@@ -76,10 +76,10 @@ class ZWalletGenerator extends React.Component {
 
   handlePasswordPhrase(e){
     // What wif format do we use?
-    var wifHash = this.props.settings.useTestNet ? zerojs.config.testnet.wif : zerojs.config.mainnet.wif
+    var wifHash = this.props.settings.useTestNet ? komodojs.config.testnet.wif : komodojs.config.mainnet.wif
 
-    var pk = zerojs.address.mkPrivKey(e.target.value)
-    var pkwif = zerojs.address.privKeyToWIF(pk, true, wifHash)
+    var pk = komodojs.address.mkPrivKey(e.target.value)
+    var pkwif = komodojs.address.privKeyToWIF(pk, true, wifHash)
 
     if (e.target.value === ''){
       pkwif = ''
@@ -271,11 +271,11 @@ class ZWalletUnlockKey extends React.Component {
               type={this.state.showPassword ? "text" : "password"}
               maxLength="64"
               onChange={(e) => this.setState({secretPhrase: e.target.value})}
-              placeholder="Secret phrase. e.g. cash cow money heros cardboard money bag late green"
+              placeholder="Secret phrase. e.g. bitcoin hush art target heros big money bag early green"
             />
           </InputGroup>
           <div style={{paddingTop: '8px'}}>
-            <Button color="secondary" className="btn-block" onClick={this.unlockHDWallet}>Generate Wallet</Button>
+            <Button color="secondary" className="btn-block" onClick={this.unlockHDWallet}>Generate Wallet / Login</Button>
           </div>
         </div>
       )
@@ -287,7 +287,7 @@ class ZWalletSettings extends React.Component {
   render () {
     return (
       <Modal isOpen={this.props.settings.showSettings} toggle={this.props.toggleModalSettings}>
-        <ModalHeader toggle={this.props.toggleShowSettings}>Zero Classic Wallet Settings</ModalHeader>
+        <ModalHeader toggle={this.props.toggleShowSettings}>BITCOIN HUSH Wallet Settings</ModalHeader>
         <ModalBody>
           <ZWalletSelectUnlockType
               setUnlockType={this.props.setUnlockType}
@@ -369,14 +369,14 @@ class ZAddressInfo extends React.Component {
 
   // Gets the blockchain explorer URL for an address
   getAddressBlockExplorerURL(address) {
-    return zenwalletutils.urlAppend(this.props.settings.explorerURL, 'address/') + address
+    return walletutils.urlAppend(this.props.settings.explorerURL, 'address/') + address
   }
 
   // Updates a address info
   updateAddressInfo(address) {
     // GET request to URL
-    var info_url = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'addr/')
-    info_url = zenwalletutils.urlAppend(info_url, address + '?noTxList=1')
+    var info_url = walletutils.urlAppend(this.props.settings.insightAPI, 'addr/')
+    info_url = walletutils.urlAppend(info_url, address + '?noTxList=1')
 
     throttledAxiosGet(info_url)
     .then(function (response){
@@ -625,9 +625,9 @@ class ZSendZEN extends React.Component {
     const senderPrivateKey = this.props.publicAddresses[senderAddress].privateKeyWIF;
 
     // Get previous transactions
-    const prevTxURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'addr/') + senderAddress + '/utxo'
-    const infoURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'status?q=getInfo')
-    const sendRawTxURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'tx/send')
+    const prevTxURL = walletutils.urlAppend(this.props.settings.insightAPI, 'addr/') + senderAddress + '/utxo'
+    const infoURL = walletutils.urlAppend(this.props.settings.insightAPI, 'status?q=getInfo')
+    const sendRawTxURL = walletutils.urlAppend(this.props.settings.insightAPI, 'tx/send')
 
     // Building our transaction TXOBJ
     // How many satoshis do we have so far
@@ -648,7 +648,7 @@ class ZSendZEN extends React.Component {
 
             const infoData = infoResp.data
             const blockHeight = infoData.info.blocks - 300
-            const blockHashURL = zenwalletutils.urlAppend(this.props.settings.insightAPI, 'block-index/') + blockHeight
+            const blockHashURL = walletutils.urlAppend(this.props.settings.insightAPI, 'block-index/') + blockHeight
 
             // Get block hash
             axios.get(blockHashURL)
@@ -774,7 +774,7 @@ class ZSendZEN extends React.Component {
     // If send was successful
     var zenTxLink
     if (this.state.sendProgress === 100){
-      var zentx = zenwalletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
+      var zentx = walletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
       zenTxLink = (
         <Alert color="success">
         <strong>ZERC successfully sent!</strong> <a href={zentx} target="_blank">Click here to view your transaction</a>
@@ -813,7 +813,7 @@ class ZSendZEN extends React.Component {
         <Col>
           <Card>
             <CardBody>
-              <Alert color="danger">ALWAYS VALIDATE YOUR DESTINATION ADDRESS BY SENDING SMALL AMOUNTS OF ZERC FIRST</Alert>
+              <Alert color="danger">ALWAYS VALIDATE YOUR DESTINATION ADDRESS BY SENDING SMALL AMOUNTS OF BTCH FIRST</Alert>
               <InputGroup>
                 <InputGroupAddon addonType="prepend">From Address</InputGroupAddon>
                 <Input type="select" onChange={this.handleUpdateSelectedAddress}>
@@ -842,7 +842,7 @@ class ZSendZEN extends React.Component {
               <FormGroup check>
                 <Label check>
                   <Input onChange={this.handleCheckChanged} type="checkbox" />{' '}
-                  Yes, I would like to send these ZERC
+                  Yes, I would like to send these BTCH
                 </Label>
               </FormGroup>
               <br/>
@@ -883,7 +883,7 @@ class ZWalletSelectUnlockType extends React.Component {
       <div style={{textAlign: 'center'}}>
         <ButtonGroup vertical>
           <Button color="secondary" onClick={() => this.onRadioBtnClick(UNLOCK_WALLET_TYPE.HD_WALLET)} active={this.state.cSelected === UNLOCK_WALLET_TYPE.HD_WALLET}>Enter secret phrase</Button>
-          <Button color="secondary" onClick={() => this.onRadioBtnClick(UNLOCK_WALLET_TYPE.IMPORT_WALLET)} active={this.state.cSelected === UNLOCK_WALLET_TYPE.IMPORT_WALLET}>Load wallet.zero</Button>
+          <Button color="secondary" onClick={() => this.onRadioBtnClick(UNLOCK_WALLET_TYPE.IMPORT_WALLET)} active={this.state.cSelected === UNLOCK_WALLET_TYPE.IMPORT_WALLET}>Load wallet.dat</Button>
           <Button color="secondary" onClick={() => this.onRadioBtnClick(UNLOCK_WALLET_TYPE.PASTE_PRIV_KEY)} active={this.state.cSelected === UNLOCK_WALLET_TYPE.PASTE_PRIV_KEY}>Paste private key</Button>
         </ButtonGroup>
       </div>
@@ -980,7 +980,7 @@ class ZWalletTabs extends React.Component {
     var now = new Date();
     now = now.toISOString().split('.')[0]+'Z';
 
-    var fileStr = '# Wallet dump created by myZeroWallet ' + pjson.version + '\n'
+    var fileStr = '# Wallet dump created by mybtchWallet ' + pjson.version + '\n'
     fileStr += '# Created on ' + now + '\n\n\n'
 
     Object.keys(this.props.publicAddresses).forEach(function(key) {
@@ -990,7 +990,7 @@ class ZWalletTabs extends React.Component {
     }.bind(this))
 
     const pkBlob = new Blob([fileStr], {type: 'text/plain;charset=utf-8'})
-    FileSaver.saveAs(pkBlob, now + '_myZerowallet_private_keys.txt')
+    FileSaver.saveAs(pkBlob, now + '_mybtchwallet_private_keys.txt')
   }
 
   render () {
@@ -1010,7 +1010,7 @@ class ZWalletTabs extends React.Component {
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggleTabs('2'); }}
             >
-              Send ZERC
+              Send BTCH
             </NavLink>
           </NavItem>
           <NavItem>
@@ -1101,21 +1101,21 @@ export default class ZWallet extends React.Component {
       function _privKeyToAddr(pk, compressPubKey, useTestNet){
         // If not 64 length, probs WIF format
         if (pk.length !== 64){
-          pk = zerojs.address.WIFToPrivKey(pk)
+          pk = komodojs.address.WIFToPrivKey(pk)
         }
 
         // Convert public key to public address
-        const pubKey = zerojs.address.privKeyToPubKey(pk, compressPubKey)
+        const pubKey = komodojs.address.privKeyToPubKey(pk, compressPubKey)
 
         // Testnet or nah
-        const pubKeyHash = useTestNet ? zerojs.config.testnet.pubKeyHash : zerojs.config.mainnet.pubKeyHash
-        const publicAddr = zerojs.address.pubKeyToAddr(pubKey, pubKeyHash)
+        const pubKeyHash = useTestNet ? komodojs.config.testnet.pubKeyHash : komodojs.config.mainnet.pubKeyHash
+        const publicAddr = komodojs.address.pubKeyToAddr(pubKey, pubKeyHash)
 
         return publicAddr
       }
 
       for (var i = 0; i < this.state.privateKeys.length; i++){
-        const pubKeyHash = this.state.settings.useTestNet ? zerojs.config.testnet.wif : zerojs.config.mainnet.wif
+        const pubKeyHash = this.state.settings.useTestNet ? komodojs.config.testnet.wif : komodojs.config.mainnet.wif
 
         var c_pk_wif;
         var c_pk = this.state.privateKeys[i]
@@ -1123,13 +1123,13 @@ export default class ZWallet extends React.Component {
         // If not 64 length, probs WIF format
         if (c_pk.length !== 64){
           c_pk_wif = c_pk
-          c_pk = zerojs.address.WIFToPrivKey(c_pk)
+          c_pk = komodojs.address.WIFToPrivKey(c_pk)
         }
         else{
-          c_pk_wif = zerojs.address.privKeyToWIF(c_pk)
+          c_pk_wif = komodojs.address.privKeyToWIF(c_pk)
         }
 
-        var c_pk_wif = zerojs.address.privKeyToWIF(c_pk, true, pubKeyHash)
+        var c_pk_wif = komodojs.address.privKeyToWIF(c_pk, true, pubKeyHash)
         const c_addr = _privKeyToAddr(c_pk, this.state.settings.compressPubKey, this.state.settings.useTestNet)
 
         publicAddresses[c_addr] = {
@@ -1252,7 +1252,7 @@ export default class ZWallet extends React.Component {
       <Container>
         <Row>
           <Col>
-            <h1 className='display-6'>Zero Classic Wallet&nbsp;
+            <h1 className='display-6'>BITCOIN HUSH Wallet&nbsp;
               <ToolTipButton onClick={this.toggleShowSettings} id={1} buttonText={<MDSettings/>} tooltipText={'settings'}/>&nbsp;
               <ToolTipButton disabled={this.state.publicAddresses === null} onClick={this.resetKeys} id={2} buttonText={<FARepeat/>} tooltipText={'reset wallet'}/>
             </h1>
