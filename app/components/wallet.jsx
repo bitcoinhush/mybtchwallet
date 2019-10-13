@@ -598,8 +598,8 @@ class ZSendZEN extends React.Component {
       errString += '`From Address` field can\'t be empty.;'
     }
 
-    if (recipientAddress.length !== 35) {
-      errString += 'Invalid address. Only transparent addresses are supported at this point in time.;'
+    if (recipientAddress.length !== 34) {
+      errString += 'Invalid address. (!==34);'
     }
 
     if (typeof parseInt(value) !== 'number' || value === ''){
@@ -1082,8 +1082,8 @@ export default class ZWallet extends React.Component {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://btch.explorer.dexstats.info/insight-api-komodo',
-        explorerURL: 'https://btch.explorer.dexstats.info/',
+        insightAPI: 'https://hush.explorer.dexstats.info/insight-api-komodo',
+        explorerURL: 'https://hush.explorer.dexstats.info/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -1216,12 +1216,12 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://btch.explorer.dexstats.info/insight-api-komodo'
-      _settings.explorerURL = 'https://btch.explorer.dexstats.info/'
+      _settings.insightAPI = 'https://hush.explorer.dexstats.info/insight-api-komodo'
+      _settings.explorerURL = 'https://hush.explorer.dexstats.info/'
     }
     else{
-      _settings.insightAPI = 'https://btch.explorer.dexstats.info/insight-api-komodo'
-      _settings.explorerURL = 'https://btch.explorer.dexstats.info/'
+      _settings.insightAPI = 'https://hush.explorer.dexstats.info/insight-api-komodo'
+      _settings.explorerURL = 'https://hush.explorer.dexstats.info/'
     }
 
     this.setState({
