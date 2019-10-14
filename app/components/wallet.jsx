@@ -775,7 +775,7 @@ class ZSendZEN extends React.Component {
       var zentx = walletutils.urlAppend(this.props.settings.explorerURL, 'tx/') + this.state.sentTxid
       zenTxLink = (
         <Alert color="success">
-        <strong>ZERC successfully sent!</strong> <a href={zentx} target="_blank">Click here to view your transaction</a>
+        <strong>BTCH successfully sent!</strong> <a href={zentx} target="_blank">Click here to view your transaction</a>
         </Alert>
       )
     }
