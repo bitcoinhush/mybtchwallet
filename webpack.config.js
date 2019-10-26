@@ -10,8 +10,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: './app/index.js',
-        faq: './app/faq.js',
-        guide: './app/guide.js'
     },
     output: {
         path: path.resolve('dist'),
@@ -34,20 +32,6 @@ module.exports = {
             template: './app/index.html',
             chunks: ['index'],
             filename: 'index.html',
-            inject: 'body'
-        }),
-        new HtmlWebpackPlugin({
-            favicon: 'assets/images/favicon.ico',
-            template: './app/index.html',
-            chunks: ['faq'],
-            filename: 'faq.html',
-            inject: 'body'
-        }),
-        new HtmlWebpackPlugin({
-            favicon: 'assets/images/favicon.ico',
-            template: './app/index.html',
-            chunks: ['guide'],
-            filename: 'guide.html',
             inject: 'body'
         })
     ],
