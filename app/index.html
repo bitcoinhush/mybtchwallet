@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +8,11 @@
     <!-- Favicon -->
 	<link rel="icon" type="image/png" href="assets/images/favicon.ico" />
     <!-- Bootstrap & Plugins CSS -->
-	<link href="https://zeroclassic.org/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" />
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="assets/css/all.min.css" />
 
 	<!-- Custom CSS -->
-    <link href="https://zeroclassic.org/assets/css/dark.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/dark.css" rel="stylesheet" type="text/css">
     <style>
         .nav-tabs .nav-item {
             margin-bottom: -1px;
@@ -55,24 +54,19 @@
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
-                            <img src="assets/images/btchlogo.png" class="light-logo" alt="BITCOIN HUSH"/>
-                            <img src="https://zeroclassic.org/assets/images/logos/zerc-logo-text-black.png" class="dark-logo" alt="BITCOIN HUSH"/>
+                            <img src="assets/images/btchlogo_white.png" class="light-logo" alt="BITCOIN HUSH"/>
+                            <img src="assets/images/btchlogo_black.png" class="dark-logo" alt="BITCOIN HUSH"/>
                         </a>
                         <!-- ***** Logo End ***** -->
 
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="https://zeroclassic.org/#about">ABOUT</a></li>
-                            <li><a href="https://zeroclassic.org/#specs">SPECS</a></li>
-                            <li><a href="https://zeroclassic.org/#roadmap">ROADMAP</a></li>
-                            <li><a href="https://zeroclassic.org/#links">EXPLORERS</a></li>
-                            <li><a href="https://zeroclassic.org/#links">EXCHANGES</a></li>
-                            <li><a href="https://zeroclassic.org/#links">POOLS</a></li>
-                            <li><a href="https://zeroclassic.org/#faq">FAQ</a></li>
-                            <li><a href="https://discord.gg/TBDTycM">DISCORD</a></li>
-                            <li><a href="https://zeroclassic.org/#wallet" class="btn-nav-box">WALLETS</a></li>
+                            <li><a href="https://bitcoinhush.github.io/">WEBSITE</a></li>
+                            <li><a href="https://btch.explorer.dexstats.info">EXPLORERS</a></li>
+                            <li><a href="https://github.com/gilardh/mybtchwallet">SOURCE CODE</a></li>
+                            <li><a href="https://myhush.org/discord/index.html">DISCORD</a></li>
                         </ul>
-                        <a class='menu-trigger'>
+                        <a class="menu-trigger">
                             <span>Menu</span>
                         </a>
                         <!-- ***** Menu End ***** -->						
@@ -114,7 +108,7 @@
 
                 <p>
                 <b>Q: How is this secure? Its on a web browser!</b><br/>
-                A: This wallet has replicated the core features of Zero Classic's daemon in JavaScript! So the process of creating and signing the transactions are all done within the browser. No sensitive information is sent through the network.
+                A: This wallet has replicated the core features of BITCOIN HUSH daemon in JavaScript! So the process of creating and signing the transactions are all done within the browser. No sensitive information is sent through the network.
                 </p>
 
                 <p>
@@ -124,7 +118,7 @@
 
                 <p>
                 <b>Q: Why are you doing this?</b><br/>
-                A: This wallet was inspired by MyZenWallet & MyBitcoinZ, which was inspired by <a href="https://myetherwallet.com">MyEtherWallet's</a> mission statement: to provide the people the ability to interact with the ZERC blockchain easily, without having to run a full node.
+                A: Provide the people the ability to interact with the BITCOIN HUSH blockchain easily, without having to run a full node.
                 </p>
             </div>
             <div class="modal-footer">
@@ -146,7 +140,7 @@
             <div class="modal-body">
                 <h3>1. Creating a new wallet</h3>
                 <ul>
-                    <li>Go to <a href="https://wallet.zeroclassic.org/">https://wallet.zeroclassic.org/</a></li>
+                    <li>Go to <a href="https://wallet.xxxx.org/">https://wallet.xxxx.org/</a></li>
                     <li>Enter a strong but easy to remember secret phrase. Save this somewhere and do NOT forget it.</li>
                     <li>Click the <code>Generate Wallet Button</code></li>
                     <ul><li>This creates a <a href="https://en.bitcoin.it/wiki/Deterministic_wallet">deterministic wallet</a> based on your secret phrase.</li></ul>
@@ -156,8 +150,8 @@
     
                 <h3>2. Accessing an existing wallet</h3>
                 <ul>
-                    <li>If you've created a wallet on <a href="https://wallet.zeroclassic.org/">https://wallet.zeroclassic.org/</a> via the secret phrase, simply re-enter the same phrase.</li>
-                    <li>For those with a <code>wallet.zero</code> file generated by GUI wallets. Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Load wallet.zero</code> option and load your <code>wallet.zero</code> file</li>
+                    <li>If you've created a wallet on <a href="https://xxxxx.xxx/">https://xxxxx.xxx/</a> via the secret phrase, simply re-enter the same phrase.</li>
+                    <li>For those with a <code>wallet.dat</code> file generated by GUI wallets. Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Load wallet.dat</code> option and load your <code>wallet.dat</code> file</li>
                     <li>To unlock a single address, Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Paste private key</code> option, paste in your private key and click the unlock button</li>
                 </ul>
             </div>
@@ -172,19 +166,12 @@
     <div id="footer"></div>
 
     <!-- jQuery -->
-    <script src="https://zeroclassic.org/assets/js/jquery-2.1.0.min.js"></script>
-    <!-- Bootstrap -->
-	<script src="https://zeroclassic.org/assets/js/popper.js"></script>
-	<script src="https://zeroclassic.org/assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
 
-	<!-- Plugins -->
-	<script src="https://zeroclassic.org/assets/js/particles.min.js"></script>
-	<script src="https://zeroclassic.org/assets/js/scrollreveal.min.js"></script>
-	<script src="https://zeroclassic.org/assets/js/jquery.downCount.js"></script>
-	<script src="https://zeroclassic.org/assets/js/parallax.min.js"></script>
+    <!-- Bootstrap -->
+	<script src="assets/js/bootstrap.min.js"></script>
 
 	<!-- Global Init -->
-	<script src="https://zeroclassic.org/assets/js/particle-purple.js"></script>
-	<script src="https://zeroclassic.org/assets/js/custom.js"></script>
+	<script src="assets/js/custom.js"></script>
 </body>
 </html>
