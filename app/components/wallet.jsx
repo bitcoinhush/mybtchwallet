@@ -180,7 +180,7 @@ class ZWalletUnlockKey extends React.Component {
       // Get reader results in bytes
       var dataHexStr = reader.result
 
-      // Retrieve private keys from wallet.zero
+      // Retrieve private keys from wallet.dat
       // Source: https://gist.github.com/moocowmoo/a715c80399bb202a65955771c465530c
       var re = /\x30\x81\xD3\x02\x01\x01\x04\x20(.{32})/gm
       var privateKeys = dataHexStr.match(re)
@@ -214,7 +214,7 @@ class ZWalletUnlockKey extends React.Component {
           <FormGroup row>
             <Col>
               {this.state.invalidPrivateKey ? <Alert color="danger"><strong>Error.</strong>&nbsp;Keys in files are corrupted</Alert> : ''}
-              <Label for="walletDatFile" className="btn btn-block btn-secondary" style={this.state.inputFileStyle}>Select wallet.zero file
+              <Label for="walletDatFile" className="btn btn-block btn-secondary" style={this.state.inputFileStyle}>Select wallet.dat file
                 <Input
                   style={{display: 'none'}}
                   type="file"
@@ -224,8 +224,8 @@ class ZWalletUnlockKey extends React.Component {
                 />
               </Label>
               <FormText color="muted">
-                For Windows, it should be in %APPDATA%/zeroclassic<br/>
-                For Mac/Linux, it should be in ~/.zeroclassic
+                For Windows, it should be in %APPDATA%\Komodo\<br/>
+                For Mac/Linux, it should be in ~/Library/Application Support/Komodo/
               </FormText>
             </Col>
           </FormGroup>
@@ -680,7 +680,7 @@ class ZSendZEN extends React.Component {
                 // If we don't have enough address
                 // fail and tell user
                 if (satoshisSoFar < satoshisToSend + satoshisfeesToSend) {
-                  this.setSendErrorMessage('Not enough confirmed ZERC in account to perform transaction')
+                  this.setSendErrorMessage('Not enough confirmed BTCH in account to perform transaction')
                   this.setProgressValue(0)
                   return
                 }
@@ -1080,8 +1080,8 @@ export default class ZWallet extends React.Component {
         showSettings: false,
         showWalletGen: false,
         compressPubKey: true,
-        insightAPI: 'https://hush.explorer.dexstats.info/insight-api-komodo',
-        explorerURL: 'https://hush.explorer.dexstats.info/',
+        insightAPI: 'https://btch.explorer.dexstats.info/insight-api-komodo',
+        explorerURL: 'https://btch.explorer.dexstats.info/',
         useTestNet: false,
         unlockType: UNLOCK_WALLET_TYPE.HD_WALLET
       }
@@ -1214,12 +1214,12 @@ export default class ZWallet extends React.Component {
     _settings.useTestNet = !_settings.useTestNet
 
     if (_settings.useTestNet){
-      _settings.insightAPI = 'https://hush.explorer.dexstats.info/insight-api-komodo'
-      _settings.explorerURL = 'https://hush.explorer.dexstats.info/'
+      _settings.insightAPI = 'https://btch.explorer.dexstats.info/insight-api-komodo'
+      _settings.explorerURL = 'https://btch.explorer.dexstats.info/'
     }
     else{
-      _settings.insightAPI = 'https://hush.explorer.dexstats.info/insight-api-komodo'
-      _settings.explorerURL = 'https://hush.explorer.dexstats.info/'
+      _settings.insightAPI = 'https://btch.explorer.dexstats.info/insight-api-komodo'
+      _settings.explorerURL = 'https://btch.explorer.dexstats.info/'
     }
 
     this.setState({
