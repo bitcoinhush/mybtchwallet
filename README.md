@@ -1,10 +1,9 @@
 # MyBTCH wallet
-
 MyBTCH wallet is a client-side browser-based wallet for Bitcoin Hush.
 
 
 # Running locally
-Download `dist` folder and double click `index.html`
+Download `docs` folder and double click `index.html`
 
 
 # Dev
