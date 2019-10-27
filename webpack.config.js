@@ -12,7 +12,7 @@ module.exports = {
         index: './app/index.js',
     },
     output: {
-        path: path.resolve('dist'),
+        path: path.resolve('docs'),
         filename: 'js/[name].js'
     },
     module: {

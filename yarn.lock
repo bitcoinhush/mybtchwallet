@@ -995,9 +995,9 @@ bitcoinjs-lib@^3.3.2:
     varuint-bitcoin "^1.0.4"
     wif "^2.0.1"
 
-"bitgo-utxo-lib@git+https://github.com/zeroclassic/bitgo-utxo-lib.git":
-  version "1.2.1"
-  resolved "git+https://github.com/zeroclassic/bitgo-utxo-lib.git#8b7cdd391a948e5e70c7e5fa0ae1c46e16c11414"
+"bitgo-utxo-lib@git+https://github.com/gilardh/bitgo-utxo-lib.git":
+  version "1.4.1"
+  resolved "git+https://github.com/gilardh/bitgo-utxo-lib.git#ad81f3456019dc309a4e0deed761b3f83b392b73"
   dependencies:
     bech32 "0.0.3"
     bigi "^1.4.0"
@@ -1197,23 +1197,6 @@ bs58check@<3.0.0, bs58check@^2.0.0, bs58check@^2.0.2, bs58check@^2.1.2:
     bs58 "^4.0.0"
     create-hash "^1.1.0"
     safe-buffer "^5.1.2"
-
-btczjs@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/btczjs/-/btczjs-1.0.0.tgz#6ce6c431a15930c11a2bcddefaa8cd97e8dbba09"
-  integrity sha1-bObEMaFZMMEaK83e+qjNl+jbugk=
-  dependencies:
-    bigi "^1.4.2"
-    bs58 "^4.0.1"
-    bs58check "^2.0.2"
-    create-hash "^1.1.3"
-    create-hmac "^1.1.6"
-    int64-buffer "^0.1.9"
-    libsodium-sumo "^0.5.2"
-    libsodium-wrappers-sumo "^0.5.2"
-    safe-buffer "^5.1.1"
-    secp256k1 "^3.3.0"
-    varuint-bitcoin "^1.0.4"
 
 buffer-indexof@^1.0.0:
   version "1.1.1"
@@ -3321,6 +3304,22 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
+
+"komodojs@git+https://github.com/gilardh/komodojs.git":
+  version "1.0.0"
+  resolved "git+https://github.com/gilardh/komodojs.git#3879717d607f8bd0ad43cd7968f37c10729b89e3"
+  dependencies:
+    bigi "^1.4.2"
+    bs58 "^4.0.1"
+    bs58check "^2.0.2"
+    create-hash "^1.1.3"
+    create-hmac "^1.1.6"
+    int64-buffer "^0.1.9"
+    libsodium-sumo "^0.5.2"
+    libsodium-wrappers-sumo "^0.5.2"
+    safe-buffer "^5.1.1"
+    secp256k1 "^3.3.0"
+    varuint-bitcoin "^1.0.4"
 
 lazy-cache@^1.0.3:
   version "1.0.4"
