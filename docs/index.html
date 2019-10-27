@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>BITCOIN HUSH Webwallet</title>
+    <!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+    <!-- Bootstrap & Plugins CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="assets/css/all.min.css" />
+
+	<!-- Custom CSS -->
+    <link href="assets/css/dark.css" rel="stylesheet" type="text/css">
+    <style>
+        .nav-tabs .nav-item {
+            margin-bottom: -1px;
+            background-color: #e9e9e9;
+        }
+        footer .footer-bottom {
+            padding-top: 40px;
+            background-image: linear-gradient(134deg, #29323c 0%, #485563 100%);
+            position: relative;
+        }
+        .welcome-area canvas {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            z-index: 4;
+        }
+        .welcome-area .header-token.text {
+            top: 70%;
+        }
+    </style>
+<link rel="shortcut icon" href="favicon.ico"></head>
+<body>
+    <div class="loading-wrapper">
+        <div class="loading">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+	<header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="navbar"></div>
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/btchlogo_white.png" class="light-logo" alt="BITCOIN HUSH"/>
+                            <img src="assets/images/btchlogo_black.png" class="dark-logo" alt="BITCOIN HUSH"/>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="https://bitcoinhush.github.io/">WEBSITE</a></li>
+                            <li><a href="https://btch.explorer.dexstats.info">EXPLORERS</a></li>
+                            <li><a href="https://github.com/gilardh/mybtchwallet">SOURCE CODE</a></li>
+                            <li><a href="https://myhush.org/discord/index.html">DISCORD</a></li>
+                        </ul>
+                        <a class="menu-trigger">
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->						
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="welcome-area bg-bottom-center" id="welcome-1">
+        <div class="header-token text">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-12 align-self-center">
+                        <div id="wallet"></div>
+                    </div>
+                    <div class="offset-lg-3 col-lg-6">
+                        <p>Always check the URL. Be safe &amp; secure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>	
+    </section>
+
+    <div class="modal fade" id="faqopen" tabindex="-1" role="dialog" aria-labelledby="faqLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="faqLabel">FAQ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                <b>Q: Are my private keys secured?</b><br/>
+                A: Yes they are secured, your private keys never leave your browser.
+                </p>
+
+                <p>
+                <b>Q: How is this secure? Its on a web browser!</b><br/>
+                A: This wallet has replicated the core features of BITCOIN HUSH daemon in JavaScript! So the process of creating and signing the transactions are all done within the browser. No sensitive information is sent through the network.
+                </p>
+
+                <p>
+                <b>Q: Can I have the source code?</b><br/>
+                A: <a href="https://github.com/gilardh/mybtchwallet">Here you go</a>
+                </p>
+
+                <p>
+                <b>Q: Why are you doing this?</b><br/>
+                A: Provide the people the ability to interact with the BITCOIN HUSH blockchain easily, without having to run a full node.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="guideopen" tabindex="-1" role="dialog" aria-labelledby="guideLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="guideLabel">Guide</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Creating a new wallet</h3>
+                <ul>
+                    <li>Go to <a href="https://wallet.xxxx.org/">https://wallet.xxxx.org/</a></li>
+                    <li>Enter a strong but easy to remember secret phrase. Save this somewhere and do NOT forget it.</li>
+                    <li>Click the <code>Generate Wallet Button</code></li>
+                    <ul><li>This creates a <a href="https://en.bitcoin.it/wiki/Deterministic_wallet">deterministic wallet</a> based on your secret phrase.</li></ul>
+                </ul>
+    
+                <br/>
+    
+                <h3>2. Accessing an existing wallet</h3>
+                <ul>
+                    <li>If you've created a wallet on <a href="https://xxxxx.xxx/">https://xxxxx.xxx/</a> via the secret phrase, simply re-enter the same phrase.</li>
+                    <li>For those with a <code>wallet.dat</code> file generated by GUI wallets. Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Load wallet.dat</code> option and load your <code>wallet.dat</code> file</li>
+                    <li>To unlock a single address, Click <code>settings</code> (<i class="fa fa-cog"></i>), select the <code>Paste private key</code> option, paste in your private key and click the unlock button</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer"></div>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- Global Init -->
+	<script src="assets/js/custom.js"></script>
+<script type="text/javascript" src="js/index.js"></script></body>
+</html>
