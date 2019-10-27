@@ -3,7 +3,7 @@
   "version": "v3.0.0",
   "description": "BTCH Wallet online",
   "main": "index.js",
-  "repository": "https://github.com/kendricktan/mybtchwallet.git",
+  "repository": "https://github.com/gilardh/mybtchwallet.git",
   "author": "gilardh <gilardh@yahoo.com>",
   "license": "MIT",
   "scripts": {
