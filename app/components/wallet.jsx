@@ -704,10 +704,12 @@ class ZSendZEN extends React.Component {
                   }
                 }
 
+                var maxFeeRate = satoshisfeesToSend;
+
                 //Start building transaction
                 let network = bitcoinjs.networks['komodo']
                 var keyPair = bitcoinjs.ECPair.fromWIF(senderPrivateKey,network)
-                var txb = new bitcoinjs.TransactionBuilder(network)
+                var txb = new bitcoinjs.TransactionBuilder(network,maxFeeRate)
 
                 txb.setVersion(bitcoinjs.Transaction.ZCASH_SAPLING_VERSION)
                 txb.setVersionGroupId(0x892F2085)

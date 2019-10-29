@@ -1,6 +1,6 @@
 {
   "name": "mybtchwallet",
-  "version": "v3.0.1",
+  "version": "v3.0.2",
   "description": "BTCH Wallet online",
   "main": "index.js",
   "repository": "https://github.com/bitcoinhush/mybtchwallet.git",
